@@ -1,0 +1,5 @@
+<!ENTITY welcome "Welcome to India">
+
+<!ELEMENT note (to,from)>
+<!ELEMENT to (#PCDATA)>
+<!ELEMENT from (#PCDATA)>

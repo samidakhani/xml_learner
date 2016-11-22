@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE note 
+[
+ <!ENTITY welcome "Welcome to India">
+ <!ELEMENT note (to,from)>
+ <!ELEMENT to (#PCDATA)>
+ <!ELEMENT from (#PCDATA)>
+]>
+
+<note>
+	<to>Sami &welcome;</to>
+	<from>Arish </from>
+</note>

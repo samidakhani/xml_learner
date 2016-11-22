@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<bookstore xmlns:xlink="http://www.w3.org/1999/xlink">
+	<book xlink:actuate="onLoad" xlink:href="http://www.w3schools.com"
+		xlink:type="resource" xlink:show="embed">
+		<title>Cracking the coding</title>
+	</book>
+</bookstore>

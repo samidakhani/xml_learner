@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<p id="demo"></p>
+
+	<script type="text/javascript">
+		var text = "<bookstore><book>" + "<title>Everyday Italian</title>"
+				+ "<author>Giada De Laurentiis</author>" + "<year>2005</year>"
+				+ "</book></bookstore>";
+
+		var parser = new DOMParser();
+		var xmlDoc = parser.parseFromString(text, "application/xml");
+
+		document.getElementById("demo").innerHTML = xmlDoc
+				.getElementsByTagName("title")[0].childNodes[0].nodeValue;
+	</script>
+</body>
+
+</html>
