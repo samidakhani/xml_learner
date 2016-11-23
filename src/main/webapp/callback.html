@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AJAX Handler</title>
+        <script type="text/javascript">
+            
+            function handler(function_call){
+                function_call();
+            }
+        
+            function myfunction1(){
+                console.log("Funcion1 called");
+            }
+            
+            function myfunction2(){
+                console.log("Funcion2 called");
+            }
+            
+        </script>
+    </head>
+    <body>
+        <button type="button" onclick="handler(myfunction1);">Call First</button> <br /><br />
+        <button type="button" onclick="handler(myfunction2);">Call Second</button>
+    </body>
+</html>
