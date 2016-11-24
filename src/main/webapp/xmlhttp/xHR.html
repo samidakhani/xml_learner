@@ -7,51 +7,54 @@
 	<p id="demo"></p>
 
 	<script type="text/javascript">
-        
-        function loadXmlDoc(){
-            
-            var xmlHttp;
-            
-            if(window.XMLHttpRequest){
-                xmlHttp = new XMLHttpRequest();    
-            }else{
-                xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
-            }
-            
-            xmlHttp.onreadystatechange = function(){
-                if(this.readyState == 4 && this.status == 200){
-                  parseXml(this);
-                }
-            }
-            
-            xmlHttp.open("GET","https://crossorigin.me/http://www.w3schools.com/js/cd_catalog.xml",true);
-            xmlHttp.send();
-           
-        }
-        
-        function parseXml(xml){
-    
-            var parser,xmlDoc,text,result="";
-            console.log("parsing xml");
-            
-             if(window.DOMParser){
-                 parser = new DOMParser();
-                 xmlDoc = parser.parseFromString(xml.responseText,"text/xml");
-             }else {
-                 xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
-                 xmlDoc.async = false;
-                 xmlDoc.loadXML(xml.responseText.responseText); 
-             }
-            
-            text = xmlDoc.getElementsByTagName("ARTIST");
-            
-            for(i = 0; i < text.length; i++){
-                result += text[i].childNodes[0].nodeValue + "<br />";
-            }
-            
-            document.getElementById("demo").innerHTML = result; 
-            
-        }
-    </script>
+		function loadXmlDoc() {
+
+			var xmlHttp;
+
+			if (window.XMLHttpRequest) {
+				xmlHttp = new XMLHttpRequest();
+			} else {
+				xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+
+			xmlHttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					parseXml(this);
+				}
+			}
+
+			xmlHttp
+					.open(
+							"GET",
+							"https://crossorigin.me/http://www.w3schools.com/js/cd_catalog.xml",
+							true);
+			xmlHttp.send();
+
+		}
+
+		function parseXml(xml) {
+
+			var parser, xmlDoc, text, result = "";
+			console.log("parsing xml");
+
+			if (window.DOMParser) {
+				parser = new DOMParser();
+				xmlDoc = parser.parseFromString(xml.responseText, "text/xml");
+			} else {
+				xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+				xmlDoc.async = false;
+				xmlDoc.loadXML(xml.responseText.responseText);
+			}
+
+			text = xmlDoc.getElementsByTagName("ARTIST");
+
+			for (i = 0; i < text.length; i++) {
+				result += text[i].childNodes[0].nodeValue + "<br />";
+			}
+
+			document.getElementById("demo").innerHTML = result;
+
+		}
+	</script>
 </body>
 </html>

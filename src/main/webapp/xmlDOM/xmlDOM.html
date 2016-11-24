@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+	function loadData() {
+		document.getElementById("demo").innerHTML = " Hello World!"
+	}
+
+	function loadXmlData() {
+
+		text = "<bookstore><book>" + "<title year='1992'>Everyday Italian</title>"
+				+ "<author>Giada De Laurentiis</author>" + "<year>2005</year>"
+				+ "</book></bookstore>";
+
+		var parser = new DOMParser();
+		var xmlDoc = parser.parseFromString(text, "text/xml");
+        
+        document.getElementById("demo").innerHTML = xmlDoc
+				.getElementsByTagName("title")[0].childNodes[0].nodeValue;
+
+		document.getElementById("demo").innerHTML += " <b>Since:</b> " + xmlDoc
+				.getElementsByTagName("title")[0].attributes[0].nodeValue;
+	}
+</script>
+</head>
+<body>
+	<p id="demo"></p>
+	<button type="button" onclick="loadData()">Load Simple</button> <br />
+	<button type="button" onclick="loadXmlData()">Load Xml</button>
+</body>
+</html>
