@@ -20,11 +20,40 @@
 
 		document.getElementById("demo").innerHTML += " <b>Since:</b> " + xmlDoc
 				.getElementsByTagName("title")[0].attributes[0].nodeValue;
+		
+		console.log(xmlDoc.getElementsByTagName("bookstore")[0].nodeType);
+        console.log(xmlDoc.nodeType);
+        console.log(xmlDoc.documentElement.firstChild.childNodes[0].childNodes[0].nodeType);
+        
+        var x = xmlDoc.getElementsByTagName("title");
+        
+        for(i=0;i<x.length;i++){
+            console.log(x[i].childNodes[0].nodeValue);
+        }
+        
+        var z = xmlDoc.getElementsByTagName("book");
+        var xlen = z[0].childNodes.length;
+        var y = z[0].firstChild;
+        
+        for(i=0; i<xlen; i++){
+            
+            if(y.nodeType == 1){
+                console.log(y.nodeName);
+            }
+            
+            y=y.nextSibling;
+            
+        }
+        
+        xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue = "EveryDay Indian";
+        console.log(xmlDoc);
+    
+        
 	}
 </script>
 </head>
 <body>
-	<p id="demo"></p>
+	<p id="demo" name="demo"></p>
 	<button type="button" onclick="loadData()">Load Simple</button> <br />
 	<button type="button" onclick="loadXmlData()">Load Xml</button>
 </body>
