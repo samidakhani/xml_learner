@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript">
+        
+        function loadXml(){
+           
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status ==200){
+                    performXpath(this.responseXML);
+                }
+            }
+            xmlHttp.open("GET","https://crossorigin.me/http://www.w3schools.com/xml/books.xml",true);
+            xmlHttp.send();
+        }
+        
+        function performXpath(xml){
+            
+            var xpath = "/bookstore/book[@category='children']/author";
+            
+            var nodes = xml.evaluate(xpath,xml,null,XPathResult.ANY_TYPE,null);
+            var result = nodes.iterateNext();
+            
+            while(result){
+                console.log(result.childNodes[0].nodeValue);
+                result = nodes.iterateNext();
+            }
+            
+        }
+        
+    </script> 
+  </head>
+  <body>
+    <p id="demo"></p>
+     <button type="button" onclick="loadXml()">Click Me</button>
+  </body>
+</html>
